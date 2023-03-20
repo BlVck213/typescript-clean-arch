@@ -1,0 +1,1 @@
+export * from '@/presentation/controller/load-last-ranking'
