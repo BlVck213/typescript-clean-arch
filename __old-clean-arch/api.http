@@ -1,0 +1,13 @@
+GET http://localhost:3000/routes
+
+###
+POST http://localhost:3000/routes
+Content-Type: application/json
+
+{
+    "title": "minha rota",
+    "startPosition": {"lat": 1, "lng": 3},
+    "endPosition": {"lat": 6, "lng": 5}
+}
+
+###

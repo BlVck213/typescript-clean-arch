@@ -1,8 +1,11 @@
+import { CreateRouteDto } from "src/routes/dto/create-route.dto";
 import { RouteRepositoryInterface } from "../domain/route-repository";
 import { LatLng, Route } from "../domain/route.entity";
 
-
 export class CreateRouteUseCase {
+    create(createRouteDto: CreateRouteDto) {
+      throw new Error('Method not implemented.');
+    }
 
     constructor(private routeRepo: RouteRepositoryInterface){}
 
