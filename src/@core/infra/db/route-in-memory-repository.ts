@@ -10,4 +10,12 @@ export class RouteInMemoryRepository implements RouteRepositoryInterface {
     async findAll(): Promise<Route[]> {
         return this.items;
     }
+
+class RouteActiveRecordRepository implements RouteRepositoryInterface {
+    async insert(route: Route): Promise<void> {
+    };
+
+    async findAll() : Promise<Route[]> {
+    }; 
 }
+
