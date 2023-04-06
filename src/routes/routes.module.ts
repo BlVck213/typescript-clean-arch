@@ -5,11 +5,24 @@ import { RouteInMemoryRepository } from '../@core/infra/db/route-in-memory-repos
 import { CreateRouteUseCase } from '../@core/application/create-route.use-case';
 import { RouteRepositoryInterface } from '../@core/domain/route-repository';
 import { ListAllRoutesUseCase } from '../@core/application/list-all-routes.use-case';
+import { RouteSchema } from 'src/@core/infra/db/typeorm/route.schema';
+import { RouteTypeOrmRepository } from 'src/@core/infra/db/typeorm/route-typeorm.repository';
+import { DataSource } from 'typeorm';
+import { TypeOrmModule, getDataSourceToken } from '@nestjs/typeorm'
+import { Route } from '../@core/domain/route.entity';
 
 @Module({
+  imports: [TypeOrmModule.forFeature([RouteSchema])],
   controllers: [RoutesController],
   providers: [
     RoutesService,
+    {
+      provide: RouteTypeOrmRepository,
+      useFactory: (dataSource: DataSource) => {
+        return new RouteTypeOrmRepository(dataSource.getRepository(Route))
+      },
+      inject: [getDataSourceToken()]
+    },
     {
       provide: RouteInMemoryRepository,
       useClass: RouteInMemoryRepository
