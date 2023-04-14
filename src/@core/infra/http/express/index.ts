@@ -1,6 +1,6 @@
 import express, {Express, Request, Response} from "express";
 import { CreateRouteUseCase } from "../../../application/create-route.use-case";
-import { RouteInMemoryRepository } from "../../db/route-in-memory-repository";
+import { RouteInMemoryRepository } from "../../db/in-memory/route-in-memory-repository";
 import { ListAllRoutesUseCase } from "../../../application/list-all-routes.use-case";
 
 const app: Express = express();
